@@ -1,7 +1,6 @@
 package view;
 
-import builder.UserBuilder;
-import model.UserDTO;
+import model.User;
 import service.KaupService;
 import service.UtilService;
 import serviceImpl.KaupServiceImpl;
@@ -14,7 +13,7 @@ public class KaupView {
         UtilService util = UtilServiceImpl.getInstance();
         double h = util.createRandomDouble(150, 50);
         double w = util.createRandomInteger( 30, 70);
-        UserDTO person = new UserBuilder()
+        User person = User.builder()
                 .height(h)
                 .weight(w)
                 .build();

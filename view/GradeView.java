@@ -1,9 +1,7 @@
 package view;
 
-import builder.SubjectBuilder;
-import builder.UserBuilder;
-import model.SubjectDTO;
-import model.UserDTO;
+import model.Subject;
+import model.User;
 import service.GradeService;
 import service.UtilService;
 import serviceImpl.GradeServiceImpl;
@@ -24,11 +22,11 @@ public class GradeView {
 
         UtilService util = UtilServiceImpl.getInstance();
         GradeService grade = GradeServiceImpl.getInstance();
-        UserDTO student = new UserBuilder()
+        User student = User.builder()
                 .username(sc.next())
                 .build();
 
-        SubjectDTO subjects = new SubjectBuilder()
+        Subject subjects = Subject.builder()
                 .kor(util.createRandomInteger(0, 100))
                 .eng(util.createRandomInteger(0, 100))
                 .math(util.createRandomInteger(0, 100))
@@ -50,7 +48,7 @@ public class GradeView {
                 String.valueOf(totalScore),
                 String.valueOf(avg));
 
-//        SubjectDTO subject = new SubjectBuilder()
+//        Subject subject = new SubjectBuilder()
 //                .kor(sc.nextInt())
 //                .eng(sc.nextInt())
 //                .math(sc.nextInt())
@@ -59,7 +57,7 @@ public class GradeView {
 
 //        System.out.printf("이름 : ");
 //        String name = sc.next();
-//        SubjectDTO.setUserName(sc.next());
+//        Subject.setUserName(sc.next());
 
 //        System.out.printf("국어점수 : ");
 //        int kor = sc.nextInt();

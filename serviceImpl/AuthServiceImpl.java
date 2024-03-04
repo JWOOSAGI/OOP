@@ -1,7 +1,7 @@
 package serviceImpl;
 
-import builder.UserBuilder;
-import model.UserDTO;
+
+import model.User;
 import service.AuthService;
 import service.UtilService;
 
@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class AuthServiceImpl implements AuthService {
     private static AuthService instance = new AuthServiceImpl();
-    Map<String, UserDTO> users;
+    Map<String, User> users;
     private AuthServiceImpl(){
         this.users = new HashMap<>();
     }
@@ -22,7 +22,7 @@ public class AuthServiceImpl implements AuthService {
                 "이름, 주민번호 전화번호, " +
                 "주소, 직업을 입력해주세요");
 
-        UserDTO person = new UserBuilder()
+        User person = User.builder()
                 .name(sc.next())
                 .password(sc.next())
                 .passwordConfirm(sc.next())
@@ -34,21 +34,21 @@ public class AuthServiceImpl implements AuthService {
         return null;
     }
     @Override
-    public String join(UserDTO user) {
+    public String join(User user) {
         users.put(user.getUsername(),user);
                 return "회원가입 성공";
     }
     @Override
-    public String login(UserDTO user) {
+    public String login(User user) {
         return null;
     }
     @Override
-    public UserDTO findUserById(String username) {
+    public User findUserById(String username) {
         return null;
     }
 
     @Override
-    public String updatePassword(UserDTO user) {
+    public String updatePassword(User user) {
         return null;
     }
 
@@ -57,18 +57,18 @@ public class AuthServiceImpl implements AuthService {
         return null;
     }
 
-    public Map<String, UserDTO> getUserMap() {
+    public Map<String, User> getUserMap() {
         users.forEach((k,v)-> System.out.print("{"+k+","+v+"},"));
         return users;
     }
 
     @Override
-    public List<UserDTO> findUsersByName(String name) {
+    public List<User> findUsersByName(String name) {
         return null;
     }
 
     @Override
-    public List<UserDTO> findUsersByJob(String job) {
+    public List<User> findUsersByJob(String job) {
         return null;
     }
 
@@ -78,13 +78,13 @@ public class AuthServiceImpl implements AuthService {
     }
     @Override
     public String addUsers() {
-        Map<String, UserDTO> map = new HashMap<>();
+        Map<String, User> map = new HashMap<>();
         UtilService util = UtilServiceImpl.getInstance();
 
         for(int i=0; i<5; i++){
             String userName = util.createRandomName();
             map.put(userName,
-                    new UserBuilder()
+                    User.builder()
                             .name(userName)
                             .password("1")
                             .passwordConfirm("1")
@@ -94,8 +94,8 @@ public class AuthServiceImpl implements AuthService {
         users = map;
         return "더미값 추가";
     }
-    public UserDTO findUser(String userName) {
-        UserDTO user = new UserBuilder()
+    public User findUser(String userName) {
+        User user = User.builder()
                             .build();
         return user;
     }

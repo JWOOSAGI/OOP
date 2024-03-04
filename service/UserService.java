@@ -1,7 +1,6 @@
 package service;
 
-import builder.UserBuilder;
-import model.UserDTO;
+import model.User;
 
 import java.util.List;
 import java.util.Map;
@@ -9,10 +8,15 @@ import java.util.Map;
 public interface UserService {
 
     String addUsers();
+    String join(User user);
+    String login(User user);
+    User findUserById(String username);
+    String updatePassword(User user);
+    String deleteUser(String username);
+    List<User> getUserList();
+    List<User> findUsersByName(String name);
+    List<User> findUsersByJob(String job);
     String countUsers();
-    String join(UserDTO build);
-    Map<String, UserDTO> getUserMap();
-    String login(UserDTO build);
-    String findUserByID(UserDTO build);
-    String findUserByJob(UserDTO build);
+
+    Map<String, User> getUserMap();
 }

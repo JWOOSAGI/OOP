@@ -20,9 +20,8 @@ public class UtilServiceImpl implements UtilService {
     }
 
     @Override
-    public double createRandomDouble(int start, int gap) {
-        return Double.parseDouble(
-                String.format("%.1f" + start + (int) (Math.random() * gap)));
+    public double createRandomDouble(int start, int gapBetweenStartAndEnd) {
+        return Math.round((start + Math.random() * gapBetweenStartAndEnd) * 10) / 10.0;
     }
 
     public String createRandomName() {

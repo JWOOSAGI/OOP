@@ -1,7 +1,6 @@
 package view;
 
-import builder.BoardBuilder;
-import model.ProductDTO;
+import model.Product;
 import service.UtilService;
 import serviceImpl.UtilServiceImpl;
 
@@ -10,7 +9,7 @@ import java.util.List;
 
 public class ProductView {
     public static void main(String[] args) {
-        List<ProductDTO> companies = new ArrayList<>();
+        List<Product> companies = new ArrayList<>();
         UtilService util = UtilServiceImpl.getInstance();
 
 

@@ -1,7 +1,5 @@
 package view;
 
-import model.BoardDTO;
-
 public class PhoneInheritance {
     public static void main(String[] args) {
         System.out.println("------집전화------");
