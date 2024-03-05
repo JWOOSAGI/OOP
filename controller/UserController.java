@@ -63,17 +63,17 @@ public class UserController {
         return userService.deleteUser(sc.next());
     }
 
-    public Map<String, User> getUserMap() {
+    public Map<String, ?> getUserMap() {
         System.out.println("전체 목록 출력");
         return userService.getUserMap();
     }
 
-    public List<User> findUsersByName(Scanner sc) {
+    public List<?> findUsersByName(Scanner sc) {
         System.out.println("이름으로 검색");
         return userService.findUsersByName(sc.next());
     }
 
-    public List<User> findUsersByJob(Scanner sc) {
+    public List<?> findUsersByJob(Scanner sc) {
         System.out.println("직업으로 검색");
         return userService.findUsersByJob(sc.next());
     }
